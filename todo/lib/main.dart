@@ -33,6 +33,8 @@ class _HomePageState extends State<HomePage> {
   var newTaskCtrl = TextEditingController();
 
   void add() {
+    if (newTaskCtrl.text.isEmpty) return;
+
     setState(() {
       widget.items.add(Item(
         title: newTaskCtrl.text,
