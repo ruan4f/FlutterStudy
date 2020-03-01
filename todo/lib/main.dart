@@ -19,12 +19,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Text("Oi"),
         title: Text("Todo App"),
-        actions: <Widget>[Icon(Icons.plus_one)],
       ),
       body: Container(
-        child: Text("Olá Mundo"),
+        child: Center(child: Text("Olá Mundo")),
       ),
     );
   }
