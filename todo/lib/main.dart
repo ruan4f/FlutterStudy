@@ -17,8 +17,8 @@ class App extends StatelessWidget {
 
 class HomePage extends StatefulWidget {
   var items = new List<Item>();
-  
-  HomePage(){
+
+  HomePage() {
     items = [];
     items.add(Item(title: 'Item 1', done: false));
     items.add(Item(title: 'Item 2', done: true));
@@ -38,9 +38,17 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView.builder(
         itemCount: widget.items.length,
-        itemBuilder:(BuildContext ctxt, int index) {
-          return Text(widget.items[index].title);
-        } ,
+        itemBuilder: (BuildContext ctxt, int index) {
+          final item = widget.items[index];
+          return CheckboxListTile(
+            title: Text(item.title),
+            key: Key(item.title),
+            value: item.done,
+            onChanged: (value) {
+              
+            },
+          );
+        },
       ),
     );
   }
