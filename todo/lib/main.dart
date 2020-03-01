@@ -109,27 +109,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
-class MeuWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      
-    );
-  }
-}
-
-class Teste extends StatefulWidget {
-  @override
-  _TesteState createState() => _TesteState();
-}
-
-class _TesteState extends State<Teste> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      
-    );
-  }
-}
