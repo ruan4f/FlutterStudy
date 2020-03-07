@@ -32,6 +32,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  double dolar;
+  double euro;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,8 +67,19 @@ class _HomeState extends State<Home> {
                   ),
                 );
               } else {
-                return Container(
-                  color: Colors.green,
+                dolar = snapshot.data['results']['currencies']['USD']['buy'];
+                euro = snapshot.data['results']['currencies']['EUR']['buy'];
+                return SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      Icon(
+                        Icons.monetization_on,
+                        size: 150.0,
+                        color: Colors.amber,
+                      )
+                    ],
+                  ),
                 );
               }
           }
