@@ -26,15 +26,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final _toDoController = TextEditingController();  
-  List _toDoList = [];  
+  final _toDoController = TextEditingController();
+  List _toDoList = [];
 
   void _addToDo() {
-    Map<String, dynamic> newToDo = Map();
-    newToDo['title'] = _toDoController.text;
-    _toDoController.text = '';
-    newToDo['ok'] = false;
-    _toDoList.add(newToDo);
+    setState(() {
+      Map<String, dynamic> newToDo = Map();
+      newToDo['title'] = _toDoController.text;
+      _toDoController.text = '';
+      newToDo['ok'] = false;
+      _toDoList.add(newToDo);
+    });
   }
 
   @override
