@@ -103,14 +103,14 @@ class _HomeState extends State<Home> {
         child: Align(
           alignment: Alignment(-0.9, 0.0),
           child: Icon(
-            Icons.remove,
+            Icons.delete,
             color: Colors.white,
           ),
         ),
       ),
       direction: DismissDirection.startToEnd,
       child: CheckboxListTile(
-        title: Text(_toDoList[index]),
+        title: Text(_toDoList[index]['title']),
         value: _toDoList[index]['ok'],
         secondary: CircleAvatar(
           child: Icon(
