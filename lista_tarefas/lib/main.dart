@@ -29,6 +29,16 @@ class _HomeState extends State<Home> {
   final _toDoController = TextEditingController();
   List _toDoList = [];
 
+  @override
+  void initState() {
+    super.initState();
+    _readData().then((data) {
+      setState(() {
+        _toDoList = json.decode(data);
+      });
+    });
+  }
+
   void _addToDo() {
     setState(() {
       Map<String, dynamic> newToDo = Map();
@@ -36,6 +46,7 @@ class _HomeState extends State<Home> {
       _toDoController.text = '';
       newToDo['ok'] = false;
       _toDoList.add(newToDo);
+      _saveData();
     });
   }
 
@@ -74,25 +85,41 @@ class _HomeState extends State<Home> {
             child: ListView.builder(
               padding: EdgeInsets.only(top: 10.0),
               itemCount: _toDoList.length,
-              itemBuilder: (context, index) {
-                return CheckboxListTile(
-                  title: Text(_toDoList[index]),
-                  value: _toDoList[index]['ok'],
-                  secondary: CircleAvatar(
-                    child: Icon(
-                      _toDoList[index]['ok'] ? Icons.check : Icons.error,
-                    ),
-                  ),
-                  onChanged: (check) {
-                    setState(() {
-                      _toDoList[index]['ok'] = check;
-                    });
-                  },
-                );
-              },
+              itemBuilder: buildItem,
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget buildItem(context, index) {
+    return Dismissible(
+      background: Container(
+        color: Colors.red,
+        child: Align(
+          alignment: Alignment(-0.9, 0.0),
+          child: Icon(
+            Icons.remove,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      direction: DismissDirection.startToEnd,
+      child: CheckboxListTile(
+        title: Text(_toDoList[index]),
+        value: _toDoList[index]['ok'],
+        secondary: CircleAvatar(
+          child: Icon(
+            _toDoList[index]['ok'] ? Icons.check : Icons.error,
+          ),
+        ),
+        onChanged: (check) {
+          setState(() {
+            _toDoList[index]['ok'] = check;
+            _saveData();
+          });
+        },
       ),
     );
   }
