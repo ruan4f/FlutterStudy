@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
       _clearAll();
       return;
     }
-    
+
     double euro = double.parse(text);
 
     realController.text = (euro * this.euro).toStringAsFixed(2);
@@ -155,6 +155,6 @@ Widget buildTextField(String label, String prefix,
     ),
     style: TextStyle(color: Colors.amber, fontSize: 25.0),
     onChanged: onChangedFunction,
-    keyboardType: TextInputType.number,
+    keyboardType: TextInputType.numberWithOptions(decimal: true),
   );
 }
