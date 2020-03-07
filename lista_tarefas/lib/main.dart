@@ -82,6 +82,11 @@ class _HomeState extends State<Home> {
                       _toDoList[index]['ok'] ? Icons.check : Icons.error,
                     ),
                   ),
+                  onChanged: (check) {
+                    setState(() {
+                      _toDoList[index]['ok'] = check;
+                    });
+                  },
                 );
               },
             ),
