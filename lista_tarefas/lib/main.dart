@@ -95,6 +95,7 @@ class _HomeState extends State<Home> {
 
   Widget buildItem(context, index) {
     return Dismissible(
+      key: Key(DateTime.now().millisecondsSinceEpoch.toString()),
       background: Container(
         color: Colors.red,
         child: Align(
