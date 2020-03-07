@@ -70,6 +70,7 @@ class _HomeState extends State<Home> {
                 dolar = snapshot.data['results']['currencies']['USD']['buy'];
                 euro = snapshot.data['results']['currencies']['EUR']['buy'];
                 return SingleChildScrollView(
+                  padding: EdgeInsets.all(10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
@@ -77,6 +78,35 @@ class _HomeState extends State<Home> {
                         Icons.monetization_on,
                         size: 150.0,
                         color: Colors.amber,
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Reais',
+                          prefixText: 'R\$',
+                          labelStyle: TextStyle(color: Colors.amber),
+                          border: OutlineInputBorder(),
+                        ),
+                        style: TextStyle(color: Colors.amber, fontSize: 25.0),
+                      ),
+                      Divider(),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Dolars',
+                          prefixText: 'US\$',
+                          labelStyle: TextStyle(color: Colors.amber),
+                          border: OutlineInputBorder(),
+                        ),
+                        style: TextStyle(color: Colors.amber, fontSize: 25.0),
+                      ),
+                      Divider(),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Euros',
+                          prefixText: '\¢',
+                          labelStyle: TextStyle(color: Colors.amber),
+                          border: OutlineInputBorder(),
+                        ),
+                        style: TextStyle(color: Colors.amber, fontSize: 25.0),
                       )
                     ],
                   ),
