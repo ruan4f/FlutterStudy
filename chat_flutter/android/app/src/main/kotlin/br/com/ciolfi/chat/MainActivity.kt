@@ -1,4 +1,4 @@
-package br.com.ciolfi.chat
+package com.example.chat_flutter
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
