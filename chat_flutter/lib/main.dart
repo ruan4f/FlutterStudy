@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
-  Firestore.instance
-      .collection('col')
-      .document('doc')
-      .setData({'texto': 'daniel'});
-
   runApp(MyApp());
+
+  Firestore.instance
+      .collection('mensagens')
+      .document('msg1')
+      .setData({'texto': 'daniel', 'from': 'daniel', 'read': false});
 }
 
 class MyApp extends StatelessWidget {
